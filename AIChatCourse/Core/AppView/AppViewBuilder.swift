@@ -1,0 +1,57 @@
+//
+//  AppViewBuilder.swift
+//  AIChatCourse
+//
+//  Created by Md Mahamudul Islam on 11/16/26.
+//
+
+import SwiftUI
+
+struct AppViewBuilder<TabbarView: View, OnboardingView: View>: View {
+    var showTabBar: Bool = false
+    @ViewBuilder var tabbarView: TabbarView
+    @ViewBuilder var onboardingView: OnboardingView
+    var body: some View {
+        ZStack {
+            if showTabBar {
+                tabbarView
+                .transition(.move(edge: .trailing))
+            } else {
+                onboardingView
+                .transition(.move(edge: .leading))
+            }
+        }
+        .animation(.smooth, value: showTabBar)
+    }
+}
+
+fileprivate struct PreviewView: View {
+    
+    @State private var showTabBar: Bool = false
+    
+    var body: some View {
+        ZStack {
+            if showTabBar {
+                ZStack {
+                    Color.blue.ignoresSafeArea()
+                    Text("Tabbar")
+                }
+                .transition(.move(edge: .trailing))
+            } else {
+                ZStack {
+                    Color.green.ignoresSafeArea()
+                    Text("Onboarding")
+                }
+                .transition(.move(edge: .leading))
+            }
+        }
+        .animation(.smooth, value: showTabBar)
+        .onTapGesture {
+            showTabBar.toggle()
+        }
+    }
+}
+
+#Preview {
+    PreviewView()
+}
