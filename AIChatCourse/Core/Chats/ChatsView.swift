@@ -40,7 +40,6 @@ struct ChatsView: View {
                 .listStyle(.plain)
                 .navigationTitle("Chat")
             }
-    
 }
 
 #Preview {

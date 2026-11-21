@@ -20,7 +20,6 @@ struct TabBarView: View {
                     ChatsView()
                 }
             }
-            
             Tab("Profile", systemImage: "person") {
                 NavigationStack {
                     ProfileView()

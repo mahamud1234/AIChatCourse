@@ -16,7 +16,6 @@ struct ProfileView: View {
                     Image(systemName: "person.circle.fill")
                         .font(.system(size: 60))
                         .foregroundStyle(.gray)
-                    
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Mahamudul")
                             .font(.title3)
@@ -28,15 +27,10 @@ struct ProfileView: View {
                 }
                 .padding(.vertical, 8)
             }
-            
             Section("Settings") {
                 Label("Personal information", systemImage: "person")
                 Label("Payments", systemImage: "creditcard")
                 Label("Notifications", systemImage: "bell")
-            }
-            
-            Section {
-                Button("Log out", role: .destructive) { }
             }
         }
         .navigationTitle("Profile")
@@ -46,10 +40,10 @@ struct ProfileView: View {
             }
         }
         .sheet(isPresented: $isPresented) {
-            Text("Settings")
+            SettingsView()
+//            Text("Settings")
         }
     }
-    
     private var settingsButton: some View {
         Button {
             onSettingsButtonPressed()
@@ -57,12 +51,10 @@ struct ProfileView: View {
             Image(systemName: "gear")
         }
     }
-    
     private func onSettingsButtonPressed() {
         isPresented = true
     }
 }
-
 
 #Preview {
     NavigationStack {

@@ -25,10 +25,10 @@ struct AppViewBuilder<TabbarView: View, OnboardingView: View>: View {
     }
 }
 
-fileprivate struct PreviewView: View {
-    
+private struct PreviewView: View {
+
     @State private var showTabBar: Bool = false
-    
+
     var body: some View {
         ZStack {
             if showTabBar {

@@ -24,7 +24,6 @@ struct ExploreView: View {
     }
 }
 
-
 /*
  struct ExploreView: View {
      var body: some View {
